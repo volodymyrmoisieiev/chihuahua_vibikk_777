@@ -44,6 +44,16 @@ pip install -e ".[dev]"        # for development tools
 
 ---
 
+### Full install
+
+Or install all main tools at once (classifier + webcam demo + horoscope):
+
+```bash
+pip install -e ".[torch,cv,horoscope]"
+```
+
+---
+
 ## Project structure
 
 - `src/chihuahua_tools/` – main package code  
