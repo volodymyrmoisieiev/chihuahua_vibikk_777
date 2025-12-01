@@ -88,8 +88,8 @@ Example:
 ```python
 from chihuahua_tools.classification import predict_path
 
-label, prob = predict_path("path/to/image.jpg")
-print(label, prob)
+result = predict_path("path/to/image.jpg")
+print(result.label, result.probability) 
 ```
 
 ### 3) Emoji webcam demo (OpenCV + MediaPipe)
