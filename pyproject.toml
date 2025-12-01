@@ -16,10 +16,23 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-torch = ["torch", "torchvision", "pillow"]
-cv = ["opencv-python", "mediapipe"]
-horoscope = ["openai", "python-dotenv"]
-dev = ["pytest>=7"]
+torch = [
+  "torch",
+  "torchvision",
+  "pillow",
+  "matplotlib"
+]
+cv = [
+  "opencv-python",
+  "mediapipe"
+]
+horoscope = [
+  "openai",
+  "python-dotenv"
+]
+dev = [
+  "pytest>=7"
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
