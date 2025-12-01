@@ -42,8 +42,6 @@ pip install -e ".[horoscope]"  # for OpenAI horoscope tool
 pip install -e ".[dev]"        # for development tools
 ```
 
----
-
 ### Full install
 
 Or install all main tools at once (classifier + webcam demo + horoscope):
