@@ -104,12 +104,10 @@ pip install -e ".[torch]"
 Then classify an image:
 
 ```python
-from chihuahua_tools.classification import predict_path
+from chihuahua_tools.classification import predict_path_with_plot
 
-result = predict_path("path/to/image.jpg")
-
-print("Label:", result.label)
-print("Probability:", result.probability)
+result = predict_path_with_plot(""path/to/image.jpg"")
+print(result.label, result.probability)
 ```
 
 ❗ **Important:**  
