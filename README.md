@@ -106,7 +106,7 @@ Then classify an image:
 ```python
 from chihuahua_tools.classification import predict_path_with_plot
 
-result = predict_path_with_plot(""path/to/image.jpg"")
+result = predict_path_with_plot("path/to/image.jpg")
 print(result.label, result.probability)
 ```
 
