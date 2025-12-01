@@ -1,67 +1,70 @@
 # chihuahua-tools 🐶🧰
 
-A small Python toolkit with several “Chihuahua” mini-projects:
+This project is a simple Python toolkit with several fun Chihuahua-themed features.  
+It is made for learning and experimenting with Python, machine learning, and computer vision.
+
+The toolkit includes:
 
 - **Behavior / vibe model** (scikit-learn)
 - **Chihuahua vs Muffin classifier** (PyTorch)
 - **Emoji webcam demo** (OpenCV + MediaPipe)
 - **Horoscope generator** (OpenAI API)
 
-This is a **learning project**.
-
 ---
 
 ## Requirements
 
-- **Python:** 3.10 / 3.11 / 3.12  
-  (Python 3.13 is not supported because `mediapipe` may not install.)
+- Python: **3.10**, **3.11**, **3.12**
 - Recommended: **Python 3.11**
+- Not recommended: **Python 3.13** (because some libraries like Mediapipe cannot install correctly)
 
 ---
 
 ## Installation (developer mode)
 
-Clone the repository and install the package in editable mode:
+Clone the repository and install the package:
 
 ```bash
+git clone https://github.com/volodymyrmoisieiev/chihuahua_vibikk_777.git
+cd chihuahua_vibikk_777
+
 pip install -e .
 ```
 
-### Install optional modules (extras)
+### Optional extras
 
-Install only what you need:
+You can install only the parts that you need:
 
 ```bash
-# Chihuahua vs Muffin (PyTorch)
-pip install -e ".[torch]"
-
-# Emoji webcam demo (OpenCV + MediaPipe)
-pip install -e ".[cv]"
-
-# Horoscope generator (OpenAI + dotenv)
-pip install -e ".[horoscope]"
-
-# Tests (optional)
-pip install -e ".[dev]"
+pip install -e ".[torch]"      # for PyTorch classifier
+pip install -e ".[cv]"         # for webcam emoji demo
+pip install -e ".[horoscope]"  # for OpenAI horoscope tool
+pip install -e ".[dev]"        # for development tools
 ```
 
 ---
 
-## Project structure (short)
+## Project structure
 
-- `src/chihuahua_tools/` – package source code
-- `src/chihuahua_tools/assets/` – bundled assets (models, images)
-- `notebooks/` – Jupyter notebooks (experiments)
-- `tests/` – tests (optional)
+- `src/chihuahua_tools/` – main package code  
+- `src/chihuahua_tools/assets/` – models and images  
+- `notebooks/` – Jupyter notebooks with experiments  
+- `tests/` – test files (if added in the future)
+
+Some functions load files from:
+
+- `assets/models/`
+- `assets/images/`
+
+Please keep the structure unchanged unless you update the code that loads these files.
 
 ---
 
-## Usage examples
+## Examples
 
-> Note: module names depend on your folder structure inside `src/chihuahua_tools/`.
-> If something does not import, check the exact package/module names.
+### 1. Behavior / vibe model
 
-### 1) Behavior / vibe model
+This model takes simple binary features and predicts a “Chihuahua vibe”.
 
 ```python
 from chihuahua_tools.behavior import predict_chi_vibe
@@ -72,77 +75,120 @@ features = {
 }
 
 result = predict_chi_vibe(features)
-print(result.prediction, result.probability, result.text)
+
+print("Prediction:", result.prediction)
+print("Probability:", result.probability)
+print("Text:", result.text)
 ```
 
-### 2) Chihuahua vs Muffin classifier (PyTorch)
+The function returns a result object with attributes such as:
+- `prediction`
+- `probability`
+- `text`
 
-Install first:
+---
+
+### 2. Chihuahua vs Muffin classifier (PyTorch)
+
+Install the extra first:
 
 ```bash
 pip install -e ".[torch]"
 ```
 
-Example:
+Then classify an image:
 
 ```python
 from chihuahua_tools.classification import predict_path
 
 result = predict_path("path/to/image.jpg")
-print(result.label, result.probability) 
+
+print("Label:", result.label)
+print("Probability:", result.probability)
 ```
 
-### 3) Emoji webcam demo (OpenCV + MediaPipe)
+❗ **Important:**  
+`predict_path()` returns a **single object**, not a tuple.  
+Do **not** write:
 
-Install first:
+```python
+label, prob = predict_path("image.jpg")  # ❌ This will give an error
+```
+
+Always use the `result` object.
+
+---
+
+### 3. Emoji webcam demo
+
+Install dependencies:
 
 ```bash
 pip install -e ".[cv]"
 ```
 
-Run:
+Run the demo:
 
 ```python
 from chihuahua_tools.emoji import main
-main()
+
+if __name__ == "__main__":
+    main()
 ```
 
-### 4) Horoscope generator (OpenAI API)
+This demo opens your webcam and shows simple emoji effects based on your face movements.
 
-Install first:
+---
+
+### 4. Horoscope generator (OpenAI API)
+
+Install dependencies:
 
 ```bash
 pip install -e ".[horoscope]"
 ```
 
-Create a `.env` file in the project root:
+Create a `.env` file with your API key:
 
 ```env
 OPENAI_API_KEY=your_key_here
 ```
 
-Example:
+Use the generator:
 
 ```python
 from chihuahua_tools.horoscope import generate_chihuahua_horoscope
 
-text = generate_chihuahua_horoscope("Fonya", details="Loves sushi")
+text = generate_chihuahua_horoscope(
+    name="Fonya",
+    details="Loves sushi and prefers sunny places",
+)
+
 print(text)
 ```
 
 ---
 
-## Notes about model/assets
+## Development
 
-Some modules use local files from:
+If you want to develop or change the project:
 
-- `src/chihuahua_tools/assets/models/`
-- `src/chihuahua_tools/assets/images/`
+```bash
+pip install -e ".[dev]"
+```
 
-If you move or rename assets, update the code that loads them.
+Then you can run:
+
+```bash
+pytest      # to run tests
+ruff check  # to lint code
+black .     # to format code
+```
 
 ---
 
 ## License
 
-See `LICENSE`.
+This project uses the **MIT License**.  
+See the `LICENSE` file for more details.
+
