@@ -190,8 +190,113 @@ black .     # to format code
 
 ---
 
+## How to Run (Beginner Friendly Guide)
+
+This section explains how to run the project even if you are new to programming.
+
+### 1. Install Python
+
+Download Python 3.11 from:
+
+https://www.python.org/downloads/release/python-3118/
+
+During installation check:
+
+```
+[✔] Add Python to PATH
+```
+
+### 2. Create a project folder
+
+Example:
+
+```
+C:\\Users\\YourName\\Desktop\\chihuahua_test\\
+```
+
+### 3. Open the folder in VS Code
+
+If you do not have VS Code: https://code.visualstudio.com/
+
+Open VS Code → File → Open Folder → select `chihuahua_test`.
+
+### 4. Create a virtual environment
+
+Open Terminal:
+
+```bash
+cd C:\\Users\\YourName\\Desktop\\chihuahua_test
+python -m venv .venv
+```
+
+Activate it:
+
+```bash
+.\.venv\Scripts\activate
+```
+
+### 5. Install the package
+
+Basic installation:
+
+```bash
+pip install "chihuahua-tools @ git+https://github.com/volodymyrmoisieiev/chihuahua_vibikk_777.git"
+```
+
+With PyTorch:
+
+```bash
+pip install "chihuahua-tools[torch] @ git+https://github.com/volodymyrmoisieiev/chihuahua_vibikk_777.git"
+```
+
+Everything:
+
+```bash
+pip install "chihuahua-tools[torch,cv,horoscope] @ git+https://github.com/volodymyrmoisieiev/chihuahua_vibikk_777.git"
+```
+
+### 6. Create a simple test script
+
+Create:
+
+```
+solution.py
+```
+
+Add:
+
+```python
+from pathlib import Path
+from chihuahua_tools.classification import predict_path_with_plot
+
+BASE_DIR = Path(__file__).resolve().parent
+image_path = BASE_DIR / "my_image.jpg"
+
+result = predict_path_with_plot(str(image_path))
+print(result.label, result.probability)
+```
+
+Place `my_image.jpg` next to `solution.py`.
+
+### 7. Run the script
+
+```
+python solution.py
+```
+
+You will see the image window and prediction.
+
+### 8. Update to newest version
+
+```bash
+.\.venv\Scripts\activate
+pip uninstall chihuahua-tools -y
+pip install "chihuahua-tools @ git+https://github.com/volodymyrmoisieiev/chihuahua_vibikk_777.git"
+```
+
+---
+
 ## License
 
 This project uses the **MIT License**.  
 See the `LICENSE` file for more details.
-
