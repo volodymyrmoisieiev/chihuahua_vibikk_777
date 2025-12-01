@@ -71,7 +71,12 @@ from chihuahua_tools.behavior import predict_chi_vibe
 
 features = {
     "Не гавкає 24/7": 1,
+    "Не гризе взуття": 1,
+    "Шарить в таро та астрології": 1,
+    "Цінує СМП, ML та DL": 1,
+    "Кайфує від Taylor Swift": 1,
     "Їсть суші": 1,
+    "Шанує IQOS культуру": 1,
 }
 
 result = predict_chi_vibe(features)
