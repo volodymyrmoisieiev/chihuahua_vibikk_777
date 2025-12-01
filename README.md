@@ -163,8 +163,8 @@ Use the generator:
 from chihuahua_tools.horoscope import generate_chihuahua_horoscope
 
 text = generate_chihuahua_horoscope(
-    name="Fonya",
-    details="Loves sushi and prefers sunny places",
+    name="Sasha",
+    details="Loves Converse and say the phrase OHHH MY FUCKING GOD",
 )
 
 print(text)
