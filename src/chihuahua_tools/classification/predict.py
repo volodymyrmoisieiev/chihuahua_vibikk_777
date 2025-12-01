@@ -65,7 +65,7 @@ def load_model(device: Optional[str] = None) -> "torch.nn.Module":
 
     model = models.resnet18()
     num_classes = 2
-    model.fc = nn.Linear(model.fc.infeatures, num_classes)  # type: ignore[attr-defined]
+    model.fc = nn.Linear(model.fc.in_features, num_classes)  # type: ignore[attr-defined]
 
     # Load weights from packaged file.
     with as_file(_model_asset()) as model_path:
